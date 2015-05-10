@@ -1,0 +1,33 @@
+---
+- name: Install MySQL
+  apt: name={{ item }} state=present
+  with_items:
+    - mysql-server
+    - php5-mysql
+
+- name: Install python mysql module
+  pip: name=MySQL-python
+
+- name: Copy MySQL config
+  copy: src=my.cnf dest=/etc/mysql/my.cnf
+
+- name: update mysql root password for all root accounts
+  mysql_user: name=root host={{ item }} password={{ root_db_password }}
+  with_items:
+    - 127.0.0.1
+    - ::1
+
+- name: ensure anonymous users are not in the database
+  mysql_user: name='' host={{ item }} state=absent
+  with_items:
+    - localhost
+
+- name: remove the test database
+  mysql_db: name=test state=absent
+
+- name: Fetch latest version of PhpMyAdmin
+  git: repo=https://github.com/phpmyadmin/phpmyadmin.git dest=/usr/share/phpmyadmin version=STABLE
+
+- name: Create symling to the htdocs
+  file: src=/usr/share/phpmyadmin dest=/usr/share/nginx/www/phpmyadmin state=link
+  notify: restart nginx

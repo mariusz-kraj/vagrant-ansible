@@ -1,0 +1,20 @@
+- name: Install PHPUnit
+  get_url: url=https://phar.phpunit.de/phpunit.phar dest=/usr/local/bin/phpunit mode=555
+
+- name: Install PHPLoc
+  get_url: url=https://phar.phpunit.de/phploc.phar dest=/usr/local/bin/phploc mode=555
+
+- name: Install PDepend
+  get_url: url=http://static.pdepend.org/php/latest/pdepend.phar dest=/usr/local/bin/pdepend mode=555
+
+- name: Install PHPMD
+  get_url: url=http://static.phpmd.org/php/latest/phpmd.phar dest=/usr/local/bin/phpmd mode=555
+
+- name: Install PHPCPD
+  get_url: url=https://phar.phpunit.de/phpcpd.phar dest=/usr/local/bin/phpcpd mode=555
+
+- name: Install PHPCS
+  get_url: url=https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar dest=/usr/local/bin/phpcs mode=555
+
+- name: Install Behat
+  get_url: url=https://github.com/Behat/Behat/releases/download/v3.0.15/behat.phar dest=/usr/local/bin/behat mode=555

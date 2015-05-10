@@ -1,0 +1,22 @@
+---
+- name: Installing packages
+  apt: name={{ item }} state=present
+  with_items:
+    - mc
+    - unzip
+    - git
+    - python-pip
+    - python-dev
+    - libmysqlclient-dev
+
+- name: Copy bash configuration
+  copy: src=bashrc dest={{ item }}
+  with_items:
+    - "/home/vagrant/.bashrc"
+    - "/root/.bashrc"
+
+- name: Copy bash aliases
+  copy: src=bash_aliases dest={{ item }}
+  with_items:
+    - "/home/vagrant/.bash_aliases"
+    - "/root/.bash_aliases"

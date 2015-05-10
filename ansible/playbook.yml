@@ -1,0 +1,11 @@
+---
+- name: Set up a development enviroment for symfony2
+  hosts: all
+  remote_user: root
+  sudo: true
+
+  roles:
+    - common
+    - php
+    - nginx
+    - mysql
