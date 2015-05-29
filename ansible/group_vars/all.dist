@@ -1,5 +1,5 @@
-project:ansiVM
-domain:ansi.dev
-memory:2048
-cpu:1
-ip:33.33.33.33
+project: ansiVM
+domain: ansi.dev
+memory: 2048
+cpu: 1
+ip: 33.33.33.33

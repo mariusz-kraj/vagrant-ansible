@@ -32,7 +32,7 @@ module Configuration
 				next
 			else
 				#Snag variable and throw it into the varhash
-				temp[0],temp[1] = line.to_s.scan(/^.*$/).to_s.split(':')
+				temp[0],temp[1] = line.to_s.scan(/^.*$/).to_s.split(': ')
 
 				#Match our regular expression and substitute
 				temp.collect! do |val|
