@@ -22,7 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.vm.provider :virtualbox do |provider, override|
         override.vm.hostname = hostname;
-        override.vm.synced_folder ".", "/usr/share/nginx/www/app/", :mount_options => ["dmode=777","fmode=666"]
+        override.vm.synced_folder "../", "/usr/share/nginx/www/app/", :mount_options => ["dmode=777","fmode=666"]
 
         override.vm.network :private_network, ip: parameters['ip']
 
