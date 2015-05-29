@@ -2,10 +2,18 @@
 
 Usage:
 
-1. git submodule add git@github.com:mariusz-kraj/vagrant-ansible.git
+```sh
+$ git submodule add git@github.com:mariusz-kraj/vagrant-ansible.git
+````
 
-2. cd vagrant-ansible
+```sh
+$ cd vagrant-ansible
+````
 
-3. cp ansible/group_vars/all.dist ansible/group_vars/all
+```sh
+$ cp ansible/group_vars/all.dist ansible/group_vars/all
+````
 
-4. vagrant up
+```sh
+$ vagrant up
+````
