@@ -4,9 +4,9 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-    filename = './vagrant/parameters'
+    filename = './ansible/group_vars/all'
     if !File.exist?(filename) and !File.file?(filename)
-        print "Create ./parameters (based on dist)\n"
+        print "Create ./ansible/group_vars/all (based on dist)\n"
         exit
     end
 

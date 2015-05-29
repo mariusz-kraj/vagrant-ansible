@@ -1,6 +1,6 @@
 server {
     server_name {{ domain }};
-    root /var/www/app/web;
+    root /usr/share/nginx/www/app/web;
 
     location / {
         # try to serve file directly, fallback to app.php

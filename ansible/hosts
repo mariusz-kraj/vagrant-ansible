@@ -1,2 +1,2 @@
 [web-servers]
-ansivm.dev ansible_ssh_host='127.0.0.1'
+dev ansible_ssh_host='127.0.0.1'
