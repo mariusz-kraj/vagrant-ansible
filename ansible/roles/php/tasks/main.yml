@@ -23,5 +23,3 @@
   get_url: url=https://getcomposer.org/download/1.0.0-alpha9/composer.phar dest=/usr/local/bin/composer mode=555
 
 - include: qa.yml
-
-- include: buildApp.yml

@@ -1,3 +1,0 @@
----
-- name: Composer
-  composer: command=update working_dir=/usr/share/nginx/www/app
