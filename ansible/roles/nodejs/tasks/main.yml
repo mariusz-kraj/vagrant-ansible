@@ -7,3 +7,9 @@
   with_items:
     - nodejs
     - build-essential
+
+- name: Install global Node.js packages
+  npm: name={{ item }} global=yes
+  with_items:
+    - bower
+    - gulp
