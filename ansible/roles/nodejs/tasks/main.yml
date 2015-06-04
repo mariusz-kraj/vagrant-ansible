@@ -4,6 +4,7 @@
   with_items:
     - nodejs
     - npm
+    - nodejs-legacy
     - build-essential
 
 - name: Install global Node.js packages
