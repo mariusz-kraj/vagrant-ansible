@@ -1,5 +1,6 @@
 server {
-    server_name hhvm_{{ domain }};
+    listen 8080;
+    server_name {{ domain }};
     root /usr/share/nginx/www/app/web;
 
     location / {
