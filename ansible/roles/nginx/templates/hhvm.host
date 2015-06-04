@@ -9,7 +9,7 @@ server {
 
     # DEV
     location ~ ^/(app_dev|config|_intelli.+)\.php(/|$) {
-        fastcgi_pass unix:/var/run/hhvm.sock;
+        fastcgi_pass unix:/var/run/hhvm/hhvm.sock;
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
@@ -18,7 +18,7 @@ server {
 
     # PROD
     location ~ ^/app\.php(/|$) {
-        fastcgi_pass unix:/var/run/hhvm.sock;
+        fastcgi_pass unix:/var/run/hhvm/hhvm.sock;
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
