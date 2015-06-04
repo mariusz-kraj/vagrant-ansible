@@ -9,7 +9,7 @@
   apt: update_cache=yes
 
 - name: Install HHVM
-  npm: name={{ item }} global=yes
+  apt: name={{ item }} global=yes
   with_items:
     - hhvm
 
