@@ -17,7 +17,7 @@
   lineinfile: dest=/etc/hhvm/server.ini line="hhvm.libxml.ext_entity_whitelist = file,http"
 
 - name: Configuration 2/4
-  lineinfile: dest=/etc/hhvm/php.ini line="hhvm.server.port = 9000" state=absent
+  lineinfile: dest=/etc/hhvm/server.ini line="hhvm.server.port = 9000" state=absent
 
 - name: Configuration 3/4
   lineinfile: dest=/etc/hhvm/server.ini line="hhvm.server.file_socket = /var/run/hhvm.sock"
