@@ -13,9 +13,15 @@
   copy: src=default.host dest=/etc/nginx/sites-available/default
   notify: restart nginx
 
-- name: Copy application host file
+- name: Copy application host file (PHP)
   template: src=app.host dest=/etc/nginx/sites-available/app
 
-- name: Enabling application vhost
+- name: Copy application host file (HHVM)
+  template: src=hhvm.host dest=/etc/nginx/sites-available/hhvm
+
+- name: Enabling application vhost (PHP)
   file: src=/etc/nginx/sites-available/app dest=/etc/nginx/sites-enabled/app state=link
+
+- name: Enabling application vhost (HHVM)
+  file: src=/etc/nginx/sites-available/hhvm dest=/etc/nginx/sites-enabled/hhvm state=link
   notify: restart nginx
