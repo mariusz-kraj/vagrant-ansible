@@ -1,9 +1,9 @@
 ---
 - name: Add key
-  command: wget -O - http://dl.hhvm.com/conf/hhvm.gpg.key | apt-key add -
+  apt_key: url=http://dl.hhvm.com/conf/hhvm.gpg.key state=present
 
 - name: Add repository
-  command: echo deb http://dl.hhvm.com/ubuntu trusty main | tee /etc/apt/sources.list.d/hhvm.list
+  apt_repository: repo='deb http://dl.hhvm.com/ubuntu trusty main' state=present
 
 - name: Update sources
   apt: update_cache=yes
