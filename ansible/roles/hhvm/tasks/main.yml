@@ -1,0 +1,14 @@
+---
+- name: Installing package
+  apt: name={{ item }} state=present
+  with_items:
+    - nodejs
+    - nodejs-legacy
+    - npm
+    - build-essential
+
+- name: Install global Node.js packages
+  npm: name={{ item }} global=yes
+  with_items:
+    - bower
+    - gulp
