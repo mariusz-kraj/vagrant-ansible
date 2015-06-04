@@ -1,0 +1,9 @@
+---
+- name: Add repository
+  command: curl -sL https://deb.nodesource.com/setup | sudo bash -
+
+- name: Installing package
+  apt: name={{ item }} state=present
+  with_items:
+    - nodejs
+    - build-essential
