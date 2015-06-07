@@ -25,9 +25,6 @@
 - name: remove the test database
   mysql_db: name=test state=absent
 
-- name: Add app user
-  mysql_user: name='app_db_user' password=123456 state=present
-
 - name: Add the app database
   mysql_db: name=app_db state=present login_user=app_db_user login_password=123456
 
