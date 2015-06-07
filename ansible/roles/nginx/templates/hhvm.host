@@ -28,5 +28,4 @@ server {
     }
 
     error_log /var/log/nginx/hhvm_error.log;
-    access_log /var/log/nginx/hhvm_access.log;
 }
