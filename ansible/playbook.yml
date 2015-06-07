@@ -1,7 +1,7 @@
 ---
 - name: Set up a development enviroment for symfony2
   hosts: all
-  remote_user: root
+  remote_user: vagrant
   sudo: true
 
   roles:
