@@ -21,7 +21,7 @@
 
 - name: Configuration 1/2
   lineinfile: dest=/etc/php5/fpm/php.ini regexp="^;date\.timezone =" line="date.timezone = 'Europe/Warsaw'"
-  notify: restart php
+#  notify: restart php problem ansible 1.9.1
 
 - name: Configuration 2/2
   lineinfile: dest=/etc/php5/cli/php.ini regexp="^;date\.timezone =" line="date.timezone = 'Europe/Warsaw'"
@@ -30,3 +30,6 @@
   get_url: url=https://getcomposer.org/download/1.0.0-alpha9/composer.phar dest=/usr/local/bin/composer mode=555
 
 - include: qa.yml
+
+- name: Restart php
+  command: service php5-fpm restart
