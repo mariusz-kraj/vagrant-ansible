@@ -33,10 +33,13 @@
 
 - name: Install Phing (Add pear channel)
   command: pear channel-discover pear.phing.info
-  ignore_errors: yes
+  register: command_result
+  failed_when: "'FAILED' in command_result.stderr"
 
 - name: Install Phing (Install package)
   command: pear install --alldeps phing/phing
+  register: command_result
+  failed_when: "'FAILED' in command_result.stderr"
 
 - include: qa.yml
 
