@@ -16,8 +16,10 @@
     - php5-curl
     - php5-fpm
     - php5-memcached
+    - memcached
     - php5-mysql
     - php5-sqlite
+  notify: start memcached
 
 - name: Configuration 1/2
   lineinfile: dest=/etc/php5/fpm/php.ini regexp="^;date\.timezone =" line="date.timezone = 'Europe/Warsaw'"
@@ -29,7 +31,16 @@
 - name: Install composer
   get_url: url=https://getcomposer.org/download/1.0.0-alpha9/composer.phar dest=/usr/local/bin/composer mode=555
 
+- name: Install Phing (Add pear channel)
+  command: pear channel-discover pear.phing.info
+
+- name: Install Phing (Install package)
+  command: pear install --alldeps phing/phing
+
 - include: qa.yml
 
 - name: Restart php
   command: service php5-fpm restart
+
+- name: Build App
+  command: phing chdir=/usr/share/nginx/www/app

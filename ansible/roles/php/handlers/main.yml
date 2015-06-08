@@ -1,3 +1,6 @@
 ---
 - name: restart php
-  service: name='php5-fpm' state=restarted
+  service: name=php5-fpm state=restarted
+
+- name: start memcached
+  service: name=memcached enabled=true state=started
