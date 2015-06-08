@@ -33,6 +33,7 @@
 
 - name: Install Phing (Add pear channel)
   command: pear channel-discover pear.phing.info
+  ignore_errors: yes
 
 - name: Install Phing (Install package)
   command: pear install --alldeps phing/phing
