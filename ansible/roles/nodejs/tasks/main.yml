@@ -1,14 +1,19 @@
 ---
+- name: Download install script
+  get_url: url=https://deb.nodesource.com/setup dest=~/setup.sh mode=0777
+
+- name: Install Node.js
+  command: /bin/bash ~/setup.sh
+
 - name: Installing package
   apt: name={{ item }} state=present
   with_items:
     - nodejs
-    - npm
-    - nodejs-legacy
     - build-essential
 
 - name: Install global Node.js packages
   npm: name={{ item }} global=yes
   with_items:
+    - npm@latest
     - bower
     - gulp
