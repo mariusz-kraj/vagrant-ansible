@@ -6,8 +6,8 @@
 
   roles:
     - common
+    - nginx
+    - mysql
     - php
     - hhvm
     - nodejs
-    - nginx
-    - mysql
