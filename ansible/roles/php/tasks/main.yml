@@ -29,7 +29,7 @@
   lineinfile: dest=/etc/php5/cli/php.ini regexp="^;date\.timezone =" line="date.timezone = 'Europe/Warsaw'"
 
 - name: Download composer
-  command: curl -sS https://getcomposer.org/installer | php
+  shell: curl -sS https://getcomposer.org/installer | php
 
 - name: Move composer
   copy: src=composer.phar dest=/usr/local/bin/composer mode=555
