@@ -48,3 +48,4 @@
 
 - name: Build App
   command: phing chdir=/usr/share/nginx/www/app
+  ignore_errors: True

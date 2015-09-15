@@ -3,3 +3,5 @@ domain: ansi.dev
 memory: 2048
 cpu: 1
 ip: 33.33.33.33
+install_hhvm: true
+root_db_password: 123456
