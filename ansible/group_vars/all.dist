@@ -3,3 +3,6 @@ domain: ansi.dev
 memory: 2048
 cpu: 1
 ip: 33.33.33.33
+root_db_password: 123456
+install_hhvm: true
+install_nodejs: true

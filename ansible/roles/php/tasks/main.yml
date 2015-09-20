@@ -21,15 +21,23 @@
     - php5-sqlite
   notify: start memcached
 
-- name: Configuration 1/2
-  lineinfile: dest=/etc/php5/fpm/php.ini regexp="^;date\.timezone =" line="date.timezone = 'Europe/Warsaw'"
-  notify: restart php
+- name: Configuration - php.ini
+  copy: src=php.ini dest={{ item }}
+  with_items:
+    - "/etc/php5/fpm/php.ini"
 
-- name: Configuration 2/2
-  lineinfile: dest=/etc/php5/cli/php.ini regexp="^;date\.timezone =" line="date.timezone = 'Europe/Warsaw'"
+- name: Configuration - php-fpm.conf
+  copy: src=php-fpm.conf dest={{ item }}
+  with_items:
+    - "/etc/php5/fpm/php-fpm.conf"
 
-- name: Download composer
-  shell: curl -sS https://getcomposer.org/installer | php
+- name: Configuration - www.conf
+  copy: src=www.conf dest={{ item }}
+  with_items:
+    - "/etc/php5/fpm/pool.d/www.conf"
+
+- name: Install composer
+  get_url: url=https://getcomposer.org/composer.phar dest=/usr/local/bin/composer mode=555
 
 - name: Move composer
   copy: src=composer.phar dest=/usr/local/bin/composer mode=555
@@ -48,3 +56,5 @@
 
 - name: Build App
   command: phing chdir=/usr/share/nginx/www/app
+  sudo: false
+  ignore_errors: True

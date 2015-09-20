@@ -1,3 +1,13 @@
+- name: Install Xdebug
+  apt: name={{ item }} state=present
+  with_items:
+    - php5-xdebug
+
+- name: Copy Xdebug configuration
+  copy: src=xdebug.ini dest={{ item }}
+  with_items:
+    - "/etc/php5/mods-available/xdebug.ini"
+
 - name: Install PHPUnit
   get_url: url=https://phar.phpunit.de/phpunit.phar dest=/usr/local/bin/phpunit mode=555
 

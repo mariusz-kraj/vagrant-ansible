@@ -8,6 +8,11 @@
     - python-pip
     - python-dev
     - libmysqlclient-dev
+    - build-essential
+    - software-properties-common
+    - tmux
+    - libsqlite3-dev
+    - ruby1.9.1-dev
 
 - name: Copy bash configuration
   copy: src=bashrc dest={{ item }}
@@ -20,3 +25,10 @@
   with_items:
     - "/home/vagrant/.bash_aliases"
     - "/root/.bash_aliases"
+
+- name: Install gem packages
+  gem: name=mailcatcher state=present user_install=no
+
+- name: Copy mailcatcher configuration
+  copy: src=mailcatcher.conf dest=/etc/init/mailcatcher.conf
+  notify: start mailcatcher
