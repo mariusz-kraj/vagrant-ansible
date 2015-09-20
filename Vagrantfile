@@ -24,7 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         override.vm.hostname = hostname;
         override.vm.synced_folder "../", "/usr/share/nginx/www/app/", :mount_options => ["dmode=777","fmode=666"]
 
-        override.vm.network :private_network, ip: parameters['ip'], name: "VirtualBox Host-Only Ethernet Adapter #6"
+        override.vm.network :private_network, ip: parameters['ip']
 
         provider.name = parameters['project']
         provider.gui = false
