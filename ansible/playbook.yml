@@ -8,6 +8,6 @@
     - common
     - nginx
     - mysql
-    - nodejs
-    - { role: hhvm, when: intall_hhvm == true }
+    - { role: nodejs, when: install_nodejs == true }
+    - { role: hhvm, when: install_hhvm == true }
     - php
