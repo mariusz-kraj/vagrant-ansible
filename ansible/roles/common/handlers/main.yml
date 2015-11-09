@@ -1,3 +1,0 @@
----
-- name: start mailcatcher
-  service: name=mailcatcher state=started
