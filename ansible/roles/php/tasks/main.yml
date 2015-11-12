@@ -39,9 +39,6 @@
 - name: Install composer
   get_url: url=https://getcomposer.org/composer.phar dest=/usr/local/bin/composer mode=555
 
-- name: Move composer
-  copy: src=composer.phar dest=/usr/local/bin/composer mode=555
-
 - name: Install Phing (Add pear channel)
   command: pear channel-discover pear.phing.info
   register: command_result

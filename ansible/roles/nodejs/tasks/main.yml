@@ -17,3 +17,5 @@
     - npm@latest
     - bower
     - gulp
+    - grunt
+    - grunt-cli
