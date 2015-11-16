@@ -14,6 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     parameters = Configuration.get_vars(filename)
 
     hostname = parameters['domain'];
+    app_dir = parameters['app_dir'];
 
     config.vm.box = "ubuntu/trusty64"
 
@@ -22,9 +23,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.vm.provider :virtualbox do |provider, override|
         override.vm.hostname = hostname;
-        override.vm.synced_folder "../", "/usr/share/nginx/www/app/", :mount_options => ["dmode=777","fmode=666"]
+        override.vm.synced_folder app_dir, "/usr/share/nginx/www/app/", :mount_options => ["dmode=777","fmode=666"]
 
-        override.vm.network :private_network, ip: parameters['ip'], name: "VirtualBox Host-Only Ethernet Adapter #6"
+        override.vm.network :private_network, ip: parameters['ip']
 
         provider.name = parameters['domain']
         provider.gui = false

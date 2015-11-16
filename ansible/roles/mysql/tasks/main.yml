@@ -32,15 +32,9 @@
   mysql_db: name=app_db state=present login_user=app_db_user login_password=123456
   notify: restart mysql
 
-- name: Fetch latest version of PhpMyAdmin
-  get_url: url=https://files.phpmyadmin.net/phpMyAdmin/4.4.15/phpMyAdmin-4.4.15-english.zip dest=/tmp validate_certs=false
+- name: Install PhpMyAdmin
+  apt: name=phpmyadmin state=present
 
-- name: Unpack PhpMyAdmin
-  unarchive: src=/tmp/phpMyAdmin-4.4.15-english.zip dest=/usr/share copy=no
-
-- name: Rename
-  command: mv /usr/share/phpMyAdmin-4.4.15-english /usr/share/phpmyadmin
-
-- name: Create symling to the htdocs
+- name: Create symling for PhpMyAdmin to the htdocs
   file: src=/usr/share/phpmyadmin dest=/usr/share/nginx/www/phpmyadmin state=link
   notify: restart nginx
