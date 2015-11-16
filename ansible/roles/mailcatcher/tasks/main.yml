@@ -1,0 +1,15 @@
+---
+- name: Installing packages
+  apt: name={{ item }} state=present
+  with_items:
+    - build-essential
+    - software-properties-common
+    - libsqlite3-dev
+    - ruby1.9.1-dev
+
+- name: Install gem packages
+  gem: name=mailcatcher state=present user_install=no
+
+- name: Copy mailcatcher configuration
+  copy: src=mailcatcher.conf dest=/etc/supervisor/conf.d/mailcatcher.conf
+  notify: start mailcatcher

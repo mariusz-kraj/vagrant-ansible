@@ -1,8 +1,13 @@
-project: ansiVM
 domain: ansi.dev
 memory: 2048
 cpu: 1
 ip: 33.33.33.33
+
+app_dir: ../
+
 root_db_password: 123456
+
 install_hhvm: true
 install_nodejs: true
+install_mailcatcher: true
+install_xdebug: true

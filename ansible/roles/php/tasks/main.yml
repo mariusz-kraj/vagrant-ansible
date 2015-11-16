@@ -36,11 +36,12 @@
   with_items:
     - "/etc/php5/fpm/pool.d/www.conf"
 
+- name: Change owner and group of php5-fom.sock
+  file: path=/var/run/php5-fpm.sock owner=vagrant group=vagrant
+  notify: restart php
+
 - name: Install composer
   get_url: url=https://getcomposer.org/composer.phar dest=/usr/local/bin/composer mode=555
-
-- name: Move composer
-  copy: src=composer.phar dest=/usr/local/bin/composer mode=555
 
 - name: Install Phing (Add pear channel)
   command: pear channel-discover pear.phing.info
@@ -48,7 +49,7 @@
   failed_when: "'FAILED' in command_result.stderr"
 
 - name: Install Phing (Install package)
-  command: pear install --alldeps phing/phing
+  command: pear install phing/phing
   register: command_result
   failed_when: "'FAILED' in command_result.stderr"
 

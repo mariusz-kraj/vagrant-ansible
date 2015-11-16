@@ -10,4 +10,5 @@
     - mysql
     - { role: nodejs, when: install_nodejs == true }
     - { role: hhvm, when: install_hhvm == true }
+    - { role: mailcatcher, when: install_mailcatcher == true }
     - php
